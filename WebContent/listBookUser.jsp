@@ -28,8 +28,8 @@
 						alt="Card image cap">
 					<div class="card-body">
 						<h5 class="card-title" style="text-align: center">
-							<a href="Detail.jsp"><c:out
-									value="${book.fileName}" /></a>
+							<a href="BookController?action=detail&id=<c:out value="${book.id}" />"><c:out
+									value="${book.name}" /></a>
 						</h5>
 						<p class="card-text" style="text-align: center">
 							<c:out value="${book.description}" />

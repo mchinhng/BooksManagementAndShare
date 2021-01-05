@@ -61,6 +61,7 @@ public class UploadServlet extends HttpServlet {
 			Part filePart = request.getPart("file");// Textbox value of name file.
 			
 			String description = request.getParameter("description");
+			String name = request.getParameter("name");
 			String ID_category = request.getParameter("ID_category");
 			String filename = filePart.getSubmittedFileName();
 			String path = folderName + File.separator + filename;
@@ -73,13 +74,14 @@ public class UploadServlet extends HttpServlet {
 			try {
 				con = DB.getConnection();
 				System.out.println("connection done");
-				String sql = "insert into name(filename,description,ID_category,path,added_date) values(?,?,?,?,?)";
+				String sql = "insert into name(filename,description,ID_category,path,added_date,name) values(?,?,?,?,?,?)";
 				ps = con.prepareStatement(sql);
 				ps.setString(1, filename);
 				ps.setString(2, description);
 				ps.setString(3, ID_category);
 				ps.setString(4, path);
 				ps.setTimestamp(5, added_date);
+				ps.setString(6, name);
 				int status = ps.executeUpdate();
 				if (status > 0) {
 					session.setAttribute("fileName", filename);

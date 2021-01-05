@@ -9,9 +9,9 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+	<jsp:include page="headerUser.jsp"></jsp:include>
 	<div class="container">
 		<br> <br> <br> <br>
-		<center>
 
 			<form action="UploadServlet" method="post"
 				enctype="multipart/form-data">
@@ -21,7 +21,7 @@
 					</tr>
 					<tr>
 						<td>File Name</td>
-						<td><input type="text" required="" name="filename"></td>
+						<td><input type="text" required="" name="name"></td>
 					</tr>
 
 					<tr>
@@ -33,7 +33,7 @@
 								<option value="4">Novel</option>
 								<option value="5">Romance</option>
 								<option value="6">Horror</option>
-								
+
 						</select></td>
 					</tr>
 					<tr>
@@ -51,8 +51,7 @@
 				</table>
 
 			</form>
-			<br> <a href="${pageContext.request.contextPath}/">Home</a>
-		</center>
+
 	</div>
 </body>
 </html>

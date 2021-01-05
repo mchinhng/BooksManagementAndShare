@@ -15,37 +15,37 @@
         <script language="javascript">	
 	function validate()
 	{
-            var user_name= /^[a-z A-Z]+$/; 
+            var user_name= /^[a-z A-Z]+$/; //pattern allowed alphabet a-z or A-Z 
             var name_valid= /^[a-z A-Z]+$/; 
-            var password_valid=/^[A-Z a-z 0-9]{6,12}$/; 
+            var password_valid=/^[A-Z a-z 0-9]{6,12}$/; //pattern password allowed A to Z, a to z, 0-9 and 6 to 12 range
             var email_valid= /^[a-z A-Z]+$/; 
             
             
             var uname = document.getElementById("uname");
-            var name_ = document.getElementById("name_"); 
+            var name_ = document.getElementById("name_"); //textbox id email
             var e_mail = document.getElementById("e_mail");
-            var password = document.getElementById("password"); 
+            var password = document.getElementById("password"); //textbox id password
 				
           
-            if(!user_name.test(uname.value) || uname.value=='') 
+            if(!user_name.test(uname.value) || uname.value=='') //apply if condition using test() method match the parameter for pattern allow alphabet only
             {
-		alert("Enter Username Alphabet Only....!"); 
+		alert("Enter Username Alphabet Only....!"); //alert message
                 uname.focus();
-                uname.style.background = '#f08080'; 
+                uname.style.background = '#f08080'; //set textbox color
                 return false;                    
             }
-            if(!name_valid.test(uname.value) || uname.value=='') 
+            if(!name_valid.test(uname.value) || uname.value=='') //apply if condition using test() method match the parameter for pattern allow alphabet only
             {
-		alert("Enter Username Alphabet Only....!"); 
+		alert("Enter Username Alphabet Only....!"); //alert message
                 uname.focus();
-                uname.style.background = '#f08080'; 
+                uname.style.background = '#f08080'; //set textbox color
                 return false;                    
             }
-            if(!password_valid.test(password.value) || password.value=='') 
+            if(!password_valid.test(password.value) || password.value=='') //apply if condition using test() method match the parameter for pattern passoword allow 6 to 12 range 
             {
-		alert("Password Must Be 6 to 12 character"); 
+		alert("Password Must Be 6 to 12 character"); //alert message
                 password.focus();
-                password.style.background = '#f08080'; 
+                password.style.background = '#f08080'; //set textbox color
                 return false;                    
             }
 	}		
@@ -77,7 +77,7 @@
 					<%
                     if(request.getAttribute("RegisterErrorMsg")!=null)
                     {
-                        out.println(request.getAttribute("RegisterErrorMsg")); 
+                        out.println(request.getAttribute("RegisterErrorMsg")); //get register fail error message from "RegisterController"
                     }
                 %>
 				</h3>

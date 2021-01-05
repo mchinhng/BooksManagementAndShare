@@ -7,7 +7,7 @@
 <title>Search</title>
 </head>
 <body>
-<h1>index</h1>
+<h1>Search Demo using Jquery</h1>
 <form action="Controller">
 Name <input type ="text" name = "txtName" value = ""/><br/>
 	<input type ="submit" name = "action" value = "Search">

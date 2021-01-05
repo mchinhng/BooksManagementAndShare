@@ -14,7 +14,8 @@ public class BookController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String INSERT_OR_EDIT = "/File.jsp";
 	private static String LIST_BOOK = "/listBookUser.jsp";
-	private static String LIST_BOOK_ADMIN = "/listBookAdmin2.jsp";
+	private static String LIST_BOOK_ADMIN = "/listBookAdmin.jsp";
+	private static String DETAIL = "/Detail.jsp";
 
 	private BookDao dao;
 
@@ -32,7 +33,7 @@ public class BookController extends HttpServlet {
 		if (action.equalsIgnoreCase("delete")) {
 			int id = Integer.parseInt(request.getParameter("id"));
 			dao.deleteBook(id);
-			forward = LIST_BOOK;
+			forward = LIST_BOOK_ADMIN;
 			request.setAttribute("books", dao.listAllBooks());
 		} else if (action.equalsIgnoreCase("edit")) {
 			forward = INSERT_OR_EDIT;
@@ -45,6 +46,11 @@ public class BookController extends HttpServlet {
 		} else if (action.equalsIgnoreCase("listBookAdmin")) {
 			forward = LIST_BOOK_ADMIN;
 			request.setAttribute("books", dao.listAllBooks());
+		} else if (action.equalsIgnoreCase("detail")) {
+			forward = DETAIL;
+			int id = Integer.parseInt(request.getParameter("id"));
+			Book book = dao.getBook(id);
+			request.setAttribute("book", book);
 		} else {
 			forward = INSERT_OR_EDIT;
 		}
@@ -61,6 +67,7 @@ public class BookController extends HttpServlet {
 		book.setDescription(request.getParameter("description"));
 		book.setID_category(request.getParameter("ID_category"));
 		book.setPath(request.getParameter("path"));
+		book.setName(request.getParameter("name"));
 		String id = request.getParameter("id");
 		if (id == null || id.isEmpty()) {
 			dao.addBook(book);

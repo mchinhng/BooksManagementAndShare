@@ -30,12 +30,13 @@ public class Search2 extends HttpServlet {
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/file_upload", "root", "123456789");
 			pst = con.prepareStatement(
-					"select name.id, name.filename, name.description , categor_y.category from name inner join categor_y on name.ID_category = categor_y.ID_category where filename =?");
+					"select name.id, name.filename,name.name, name.description , categor_y.category from name inner join categor_y on name.ID_category = categor_y.ID_category where name =?");
 			pst.setString(1, filename);
 			rs = pst.executeQuery();
-
+			out.println("<link rel=\"stylesheet\"\r\n"
+					+ "	href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css\">");
 			out.println("<table width=60% border= 1   >");
-			out.println("<tr><td colspan=5 ");
+			out.println("<tr><td colspan=4 ");
 			out.println("<center><h2>Result of Search</h2></center>");
 			out.println("</td></tr>");
 			out.println("<tr>");
@@ -43,20 +44,23 @@ public class Search2 extends HttpServlet {
 			out.println("<th>filename</th>");
 			out.println("<th>description</th>");
 			out.println("<th>category</th>");
-			out.println("<th>Download</th>");
 			out.println("</tr>");
 
 			while (rs.next()) {
 				out.println("<tr>");
 				out.println("<td>" + rs.getString("id") + "</td> ");
-				out.println("<td>" + rs.getString("filename") + "</td> ");
+				out.println("<td> <a href=\"BookController?action=detail&id=" + rs.getString("id") + "\"> "
+						+ rs.getString("name") + "</td> </a>");
 				out.println("<td>" + rs.getString("description") + "</td> ");
 				out.println("<td>" + rs.getString("category") + "</td> ");
-				out.print("<td>" + "<a href=\"DownloadServlet?fileName=\" =rs.getString(\"path\")>" + "Download"
-						+ "</a>" + "</td>");
 				out.println("</tr>");
-
+				out.print("<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"></script>\r\n"
+						+ "	<script\r\n"
+						+ "		src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\"></script>\r\n"
+						+ "	<script\r\n"
+						+ "		src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js\"></script>");
 			}
+
 			out.println("</table>");
 
 		} catch (ClassNotFoundException ex) {

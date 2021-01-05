@@ -23,6 +23,7 @@
 		if (total <= 3) {
 			first = 0;
 			last = total;
+			//SELECT * FROM product.car limit 0,3
 		} else {
 			first = (pages - 1) * 3;
 			last = 3;

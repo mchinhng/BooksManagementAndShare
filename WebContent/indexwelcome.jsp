@@ -5,7 +5,8 @@
  
 <h2>
     <%
-    if(session.getAttribute("login")==null || session.getAttribute("login")=="") 
+    if(session.getAttribute("login")==null || session.getAttribute("login")=="") //check if condition for unauthorize user not direct access welcome.jsp page
+    {
         response.sendRedirect("indexLogin.jsp");
     }
     %>

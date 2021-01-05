@@ -33,7 +33,7 @@
 						alt="Card image cap">
 					<div class="card-body">
 						<h5 class="card-title" style="text-align: center" >
-							<a href="#"><%=rs.getString("filename")%> </a> 
+							<a href="BookController?action=detail&id=<%= rs.getString("id")%>"><%= rs.getString("name")%></a> 
 						</h5>
 						<p class="card-text" style="text-align: center">
 							<%=rs.getString("description")%>

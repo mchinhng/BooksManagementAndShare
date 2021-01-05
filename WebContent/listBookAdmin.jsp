@@ -26,21 +26,22 @@
 							<th>Description</th>
 							<th>Category</th>
 							<th>Added Date</th>
-							<th colspan=3>Action</th>
+							<th colspan=2>Action</th>
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach items="${books}" var="book">
 							<tr>
 								<td><c:out value="${book.id}" /></td>
-								<td><c:out value="${book.fileName}" /></td>
+								<td><a href="BookController?action=detail&id=<c:out value="${book.id}" />"><c:out
+									value="${book.name}" /></a></td>
 								<td><c:out value="${book.description}" /></td>
 								<td><c:out value="${book.ID_category}" /></td>
 								<td><c:out value="${book.added_Date}" /></td>
-								<td><a
-									href="BookController?action=edit&id=<c:out value="${book.id}"/>">Update</a></td>
+								<!-- <td><a
+									href="BookController?action=edit&id=<c:out value="${book.id}"/>">Update</a></td>-->
 
-								<td><a
+								 <td><a
 									href="BookController?action=delete&id=<c:out value="${book.id}" />">Delete</a></td>
 									<td><a href="DownloadServlet?fileName=<c:out value="${book.fileName}" />">Download</a></td>
 							</tr>

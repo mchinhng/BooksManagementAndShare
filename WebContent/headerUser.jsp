@@ -7,13 +7,7 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 <style>
-body {
-	background-image:
-		url('https://www.estidia.eu/wp-content/uploads/2018/04/Savin-NY-Website-Background-Web.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-}
+
 </style>
 
 </head>

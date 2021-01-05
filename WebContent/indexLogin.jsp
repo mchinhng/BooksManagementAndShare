@@ -1,10 +1,10 @@
 
 <%
 	if (session.getAttribute("login") != null) {
-		response.sendRedirect("indexwelcome.jsp"); //kiem tra session
+		response.sendRedirect("indexwelcome.jsp"); //session login user not back to index.jsp page or not type direct in url
 	}
 	else if (session.getAttribute("loginAdmin") != null) {
-	response.sendRedirect("indexwelcomeAdmin.jsp"); 
+	response.sendRedirect("indexwelcomeAdmin.jsp"); //session login user not back to index.jsp page or not type direct in url
 }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

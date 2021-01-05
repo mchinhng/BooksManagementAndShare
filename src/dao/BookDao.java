@@ -21,13 +21,14 @@ public class BookDao {
 	public void addBook(Book book) {
 		try {
 			PreparedStatement preparedStatement = con
-					.prepareStatement("insert into name(filename,description,path,ID_category,added_date) values (?, ?, ?, ? ,?)");
+					.prepareStatement("insert into name(filename,description,path,ID_category,added_date,name) values (?, ?, ?, ? ,?,?)");
 			// Parameters start with 1
 			preparedStatement.setString(1, book.getFileName());
 			preparedStatement.setString(2, book.getDescription());
 			preparedStatement.setString(3, book.getID_category());
 			preparedStatement.setString(4, book.getPath());
 			preparedStatement.setDate(5, (Date) book.getAdded_Date());
+			preparedStatement.setString(6, book.getName());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -68,6 +69,7 @@ public class BookDao {
 				book.setID_category(rs.getString("ID_category"));
 				book.setPath(rs.getString("path"));
 				book.setAdded_Date(rs.getDate("Added_date"));
+				book.setName(rs.getString("name"));
 			
 				books.add(book);
 			}
@@ -104,6 +106,7 @@ public class BookDao {
 				book.setID_category(rs.getString("ID_category"));
 				book.setPath(rs.getString("path"));
 				book.setAdded_Date(rs.getDate("Added_date"));
+				book.setName(rs.getString("name"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
